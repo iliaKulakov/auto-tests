@@ -5,11 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
 import static org.junit.Assert.*;
 
 public class GooglePageTest {
@@ -30,7 +28,7 @@ public class GooglePageTest {
     }
 
     @Test
-    public void testGooglePage() {
+   /* public void testGooglePage() {
         // Create an instance of Bmi Calculator Page class
         // and provide the driver
         CopyOfGooglePage  = new
@@ -44,7 +42,7 @@ public class GooglePageTest {
         // Verify Bmi & Bmi Category values
         assertEquals("24.4", bmiCalcPage.getBmi());
         assertEquals("Normal", bmiCalcPage.getBmiCategory());
-    }
+    }*/
 
 
     @After

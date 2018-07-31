@@ -1,6 +1,5 @@
 package Factory;
 
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 public class DriverFactory {
 
         private static ThreadLocal<WebDriverThread> driverThread;
-
 
         public static void instantiateDriverObject() {
             driverThread = new ThreadLocal<WebDriverThread>() {
@@ -25,7 +23,6 @@ public class DriverFactory {
             return driverThread.get().getDriver();
         }
 
-
         public static void quitDriver() throws Exception {
           //  driverThread.get().quit();
             driverThread.get().getDriver().quit();
@@ -36,7 +33,6 @@ public class DriverFactory {
         getDriver();
 
     }
-
 
     }
 
