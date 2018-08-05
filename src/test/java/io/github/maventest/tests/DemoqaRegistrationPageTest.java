@@ -49,19 +49,5 @@ public class DemoqaRegistrationPageTest {
         DemoqaRegistrationPage demoqaRegistrationPage = new DemoqaRegistrationPage(driver);
         demoqaRegistrationPage.login();
 
-      /*  boolean present;
-        try {
-            DemoqaRegistrationPage demoqaRegistrationPage = new DemoqaRegistrationPage(driver);
-            demoqaRegistrationPage.getFirstName().sendKeys("text");
-            if(driver.findElement(By.id("name_3_firstname"))== demoqaRegistrationPage.getFirstName());
-            System.out.println("Element is correct");
-            present = true;
-
-
-        } catch (NoSuchElementException e) {
-            present = false;
-        }*/
-
-
     }
 }
