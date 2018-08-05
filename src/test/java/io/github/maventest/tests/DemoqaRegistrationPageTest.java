@@ -4,12 +4,14 @@ import io.github.maventest.pageObjects.GooglePage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import ru.stqa.selenium.factory.WebDriverPool;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -45,8 +47,21 @@ public class DemoqaRegistrationPageTest {
         driver.get("http://demoqa.com/registration/");
 
         DemoqaRegistrationPage demoqaRegistrationPage = new DemoqaRegistrationPage(driver);
+        demoqaRegistrationPage.login();
 
-        demoqaRegistrationPage.getFirstName().sendKeys("text");
+      /*  boolean present;
+        try {
+            DemoqaRegistrationPage demoqaRegistrationPage = new DemoqaRegistrationPage(driver);
+            demoqaRegistrationPage.getFirstName().sendKeys("text");
+            if(driver.findElement(By.id("name_3_firstname"))== demoqaRegistrationPage.getFirstName());
+            System.out.println("Element is correct");
+            present = true;
+
+
+        } catch (NoSuchElementException e) {
+            present = false;
+        }*/
+
 
     }
 }
