@@ -23,12 +23,21 @@ public class GoogleSearchTest {
         WebDriverPool.DEFAULT.dismissAll();
     }
 
-   // @BeforeEach
-   // public void startBrowser() {
-   //     driver = WebDriverPool.DEFAULT.getDriver(new ChromeOptions());
-   // }
-
     @BeforeEach
+    public void startBrowser() {
+        InputStream fis;
+        Properties properties = new Properties();
+        try {
+            fis = this.getClass().getClassLoader().getResourceAsStream("application.properties");
+            properties.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.path"));
+        driver = WebDriverPool.DEFAULT.getDriver(new ChromeOptions());
+    }
+
+   /* @BeforeEach
     public void setUp() {
         InputStream fis;
         Properties properties = new Properties();
@@ -40,7 +49,7 @@ public class GoogleSearchTest {
         }
         System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.path"));
         driver = new ChromeDriver();
-    }
+    }*/
 
     @Test
     public void test() {
