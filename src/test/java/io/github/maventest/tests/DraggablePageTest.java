@@ -2,7 +2,6 @@ package io.github.maventest.tests;
 
 import io.github.maventest.pageObjects.Draggable;
 import io.github.maventest.pageObjects.GooglePage;
-import jdk.jfr.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,9 +55,9 @@ public class DraggablePageTest {
     private void doSomething() {
         driver.get("http://demoqa.com/draggable/");
         Draggable draggable = new Draggable(driver);
-        Actions actions = new Actions();
+        Actions actions = new Actions(driver);
         actions.clickAndHold(draggable.getDefaultFunctionalityButton())
-                .moveByOffset(240,50)
+                .moveByOffset(410,29)
                 .perform();
 
 

@@ -20,7 +20,7 @@ public class Draggable {
                 this.driver = driver;
                 driver.get("http://demoqa.com/draggable/");
                 defaultFunctionalityButton = driver.findElement(By.id ( "ui-id-1"));
-                draggableButton = driver.findElement(By.id("draggable"))
+                draggableButton = driver.findElement(By.id("draggable"));
             }
 
     public WebElement getDefaultFunctionalityButton() {
