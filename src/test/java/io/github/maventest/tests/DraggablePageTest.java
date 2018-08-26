@@ -6,6 +6,7 @@ import org.hamcrest.TypeSafeMatcher;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,6 +15,8 @@ import ru.stqa.selenium.factory.WebDriverPool;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
@@ -26,10 +29,10 @@ public class DraggablePageTest {
 
     private WebDriver driver;
 
-    @AfterAll
-    public static void stopAllBrowsers() {
-        WebDriverPool.DEFAULT.dismissAll();
-    }
+   // @AfterAll
+   // public static void stopAllBrowsers() {
+   //     WebDriverPool.DEFAULT.dismissAll();
+   // }
 
     @BeforeEach
     public void startBrowser() {
@@ -48,20 +51,27 @@ public class DraggablePageTest {
 
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         doSomething();
+
     }
 
-    private void doSomething() {
-        driver.get("http://demoqa.com/draggable/");
+    private void doSomething() throws InterruptedException{
         Draggable draggable = new Draggable(driver);
         Actions actions = new Actions(driver);
-        actions.clickAndHold(draggable.getDefaultFunctionalityButton())
-                .moveByOffset(410,29)
+        actions.click(draggable.getDefaultFunctionalityButton());
+        Thread.sleep(5000);
+        actions.moveToElement(draggable.getDraggableButton())
+                .clickAndHold()
+                .moveByOffset(-1, -1)
+                .moveByOffset(810,29)
+                .release()
                 .perform();
+        Thread.sleep(5000);
 
-
-       // assertThat(draggable.getDefaultFunctionalityButton(), equalTo());
-       // assertNotNull(googlePage.getLogo(), "Can't find logo element");
     }
-}
+
+
+    }
+
+

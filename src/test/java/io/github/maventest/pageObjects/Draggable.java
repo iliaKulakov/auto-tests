@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 public class Draggable {
 
     WebElement defaultFunctionalityButton;
+
     WebElement draggableButton;
     WebDriver  driver;
 
@@ -21,11 +22,18 @@ public class Draggable {
                 driver.get("http://demoqa.com/draggable/");
                 defaultFunctionalityButton = driver.findElement(By.id ( "ui-id-1"));
                 draggableButton = driver.findElement(By.id("draggable"));
+                //draggableButton = driver.findElement
+                  //      (By.className("ui-widget-content ui-draggable ui-draggable-handle"));
             }
 
     public WebElement getDefaultFunctionalityButton() {
         return defaultFunctionalityButton;
     }
+
+    public WebElement getDraggableButton() {
+        return draggableButton;
+    }
+
 
     }
 
