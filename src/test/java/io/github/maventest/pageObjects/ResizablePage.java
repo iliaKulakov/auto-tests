@@ -20,14 +20,15 @@ public class ResizablePage {
         this.driver = driver;
         driver.get("http://demoqa.com/resizable/");
         defaultFunctionalityResizableButton = driver.findElement(By.id ( "ui-id-1"));
-        resizableButton = driver.findElement(By.className("ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"));
+        resizableButton = driver.findElement(By.xpath("//*[@id=\"resizable\"]/div[3]"));
+        //        (By.className("ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"));
     }
 
-    public WebElement getDefaultFunctionalityButton() {
+    public WebElement getdefaultFunctionalityResizableButton() {
         return defaultFunctionalityResizableButton;
     }
 
-    public WebElement getDraggableButton() {
+    public WebElement getresizableButton() {
         return resizableButton;
     }
 
